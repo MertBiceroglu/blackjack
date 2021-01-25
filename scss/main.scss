@@ -1,0 +1,190 @@
+@import "config";
+@import "chips";
+@import "cards";
+
+body {
+  background: $allBackgroundColor;
+  @include flex;
+  height: 100vh;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  #opponent {
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+  }
+  #player {
+    color: white;
+    margin-bottom: 25px;
+  }
+}
+.mainWrapper {
+  @include flex;
+  height: 100vh;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+.chipsSec {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  .chipsWrapper {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: ($BackgroundColor);
+
+    border-bottom-right-radius: 45px;
+    border-right: 4px black solid;
+  }
+  .openClose {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: -50px;
+    .X {
+      color: $chipFiveDollarInnerOne;
+      background-color: $BackgroundColor;
+      width: 50px;
+      text-align: center;
+      align-self: flex-end;
+      display: inline;
+      border: black 4px solid;
+      border-bottom: 0px solid black;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+    .O {
+      color: $chipFiveDollarInnerOne;
+      background-color: $BackgroundColor;
+      width: 50px;
+      text-align: center;
+      align-self: flex-end;
+      display: inline;
+      border: black 4px solid;
+      border-left: 0px solid white;
+      position: relative;
+      bottom: -5px;
+      right: -20px;
+      opacity: 0;
+      border-bottom-right-radius: 15px;
+      border-top-right-radius: 15px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.table-wrapper {
+  width: 75%;
+  height: 800px;
+  border: 25px solid black;
+  background-image: url(images/pokertable.jpg);
+  background-color: $BackgroundColor;
+  background-size: cover;
+  border-radius: 70%;
+  @include flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  .alert {
+    font-size: 4rem;
+    color: goldenrod;
+    opacity: 0;
+  }
+  .wrapper {
+    @include flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    // border: 1px solid black;
+    img {
+      margin-left: 70px;
+      width: 100px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+  .wrapper .bets {
+    width: 300px;
+    height: 200px;
+    border: white 1px solid;
+  }
+}
+
+.chipHide {
+  transform: translateX(-230px);
+  transition: transform 1.5s ease-in-out;
+}
+.chipUnHide {
+  transform: translateX(+0);
+  transition: transform 1.5s ease-in-out;
+}
+
+.infoWrapper {
+  opacity: 1;
+  height: 740px;
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  background-color: ($BackgroundColor);
+  border: 5px solid black;
+  border-right: 0px solid black;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+
+  h2 {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.2rem;
+  }
+  & .amount {
+    color: white;
+  }
+
+  hr {
+    margin-top: 10px;
+  }
+  button:nth-of-type(1) {
+    width: 90%;
+    height: 100px;
+    background: $chipFiveDollarInnerOne;
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 25px;
+    border: 5px solid black;
+  }
+  button:nth-of-type(2) {
+    width: 90%;
+    height: 100px;
+    background: $chipFiftyDollarOuter;
+    font-size: 25px;
+    font-weight: 900;
+    border-radius: 25px;
+    color: white;
+    border: 5px solid black;
+  }
+  button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}

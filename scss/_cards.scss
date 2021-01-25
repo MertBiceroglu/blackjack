@@ -1,0 +1,75 @@
+.cards {
+  box-sizing: content-box;
+  width: 130px;
+  height: 180px;
+  background-image: url(cards/backdesign.png);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+
+  border: black 5px solid;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+.queen {
+  background-image: url(cards/queen_of_hearts2.png);
+}
+.jack {
+  background-image: url(cards/jack_of_hearts2.png);
+}
+.king {
+  background-image: url(cards/king_of_hearts2.png);
+}
+.ace {
+  background-image: url(cards/ace_of_hearts.png);
+}
+.two {
+  background-image: url(cards/2_of_hearts.png);
+}
+.three {
+  background-image: url(cards/3_of_hearts.png);
+}
+.four {
+  background-image: url(cards/4_of_hearts.png);
+}
+.five {
+  background-image: url(cards/5_of_hearts.png);
+}
+.six {
+  background-image: url(cards/6_of_hearts.png);
+}
+.seven {
+  background-image: url(cards/7_of_hearts.png);
+}
+.eight {
+  background-image: url(cards/8_of_hearts.png);
+}
+.nine {
+  background-image: url(cards/9_of_hearts.png);
+}
+.ten {
+  background-image: url(cards/10_of_hearts.png);
+}
+
+.closedCardsWrapper {
+  @include flex;
+  width: 400px;
+  justify-content: space-evenly;
+  position: relative;
+  bottom: 50px;
+}
+.Enemy {
+  position: relative;
+  top: 50px;
+}
+.newCard {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  align-items: center;
+  margin-right: 100px;
+}

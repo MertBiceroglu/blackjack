@@ -1,0 +1,28 @@
+$tableouterBorder: #2e2d2c;
+$allBackgroundColor: #310000;
+$BackgroundColor: #610000;
+$chipOneDollarOuter: #c0bfbe;
+$chipOneDollarInnerOne: #716f71;
+$chipOneDollarInnerTwo: #414141;
+$chipFiveDollarOuter: #e21502;
+$chipFiveDollarInnerOne: #f3d64d;
+$chipFiveDollarInnerTwo: #7e0a00;
+$chipTFiveDollarOuter: #054852;
+$chipTFiveDollarInnerOne: #067181;
+$chipTFiveDollarInnerTwo: #82bca4;
+$chipFiftyDollarOuter: #0152bd;
+$chipFiftyDollarInnerOne: #608875;
+$chipFiftyDollarInnerTwo: #5fac88;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

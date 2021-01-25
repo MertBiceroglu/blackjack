@@ -1,0 +1,67 @@
+.chip {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  @include flex;
+  &:hover {
+    opacity: 0.85;
+    cursor: pointer;
+  }
+}
+.chipTwo {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  @include flex;
+  color: white;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.OneDollar {
+  background-color: $chipOneDollarOuter;
+  border: 5px black double;
+}
+.OneInnerOne {
+  border: 5px double $chipOneDollarInnerOne;
+  background-color: $chipOneDollarInnerTwo;
+}
+.FiveDollar {
+  background-color: $chipFiveDollarOuter;
+  border: 5px double $chipFiveDollarInnerOne;
+}
+.FiveInnerOne {
+  border: 5px double $chipFiveDollarInnerOne;
+  background-color: $chipFiveDollarInnerTwo;
+}
+
+.TFiveDollar {
+  background-color: $chipTFiveDollarOuter;
+  border: 5px double $chipTFiveDollarInnerTwo;
+}
+.TFiveInnerOne {
+  border: 5px double $chipTFiveDollarInnerTwo;
+  background-color: $chipTFiveDollarInnerOne;
+}
+
+.FiftyDollar {
+  background-color: $chipFiftyDollarOuter;
+  border: 5px double $chipFiftyDollarInnerTwo;
+}
+.FiftyInnerOne {
+  border: 5px double $chipFiftyDollarInnerTwo;
+  background-color: $chipFiftyDollarInnerOne;
+}
+.chipMain {
+  width: 170px;
+  height: 170px;
+  margin-right: 50px;
+  &:hover {
+    opacity: 1;
+    cursor: default;
+  }
+}
+.chipMainInner {
+  width: 110px;
+  height: 110px;
+  font-size: 2rem;
+}

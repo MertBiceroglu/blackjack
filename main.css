@@ -1,0 +1,506 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chip {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chip:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.chipTwo {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.OneDollar {
+  background-color: #c0bfbe;
+  border: 5px black double;
+}
+
+.OneInnerOne {
+  border: 5px double #716f71;
+  background-color: #414141;
+}
+
+.FiveDollar {
+  background-color: #e21502;
+  border: 5px double #f3d64d;
+}
+
+.FiveInnerOne {
+  border: 5px double #f3d64d;
+  background-color: #7e0a00;
+}
+
+.TFiveDollar {
+  background-color: #054852;
+  border: 5px double #82bca4;
+}
+
+.TFiveInnerOne {
+  border: 5px double #82bca4;
+  background-color: #067181;
+}
+
+.FiftyDollar {
+  background-color: #0152bd;
+  border: 5px double #5fac88;
+}
+
+.FiftyInnerOne {
+  border: 5px double #5fac88;
+  background-color: #608875;
+}
+
+.chipMain {
+  width: 170px;
+  height: 170px;
+  margin-right: 50px;
+}
+
+.chipMain:hover {
+  opacity: 1;
+  cursor: default;
+}
+
+.chipMainInner {
+  width: 110px;
+  height: 110px;
+  font-size: 2rem;
+}
+
+.cards {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 130px;
+  height: 180px;
+  background-image: url(cards/backdesign.png);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  border: black 5px solid;
+  border-radius: 10px;
+}
+
+.cards:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.queen {
+  background-image: url(cards/queen_of_hearts2.png);
+}
+
+.jack {
+  background-image: url(cards/jack_of_hearts2.png);
+}
+
+.king {
+  background-image: url(cards/king_of_hearts2.png);
+}
+
+.ace {
+  background-image: url(cards/ace_of_hearts.png);
+}
+
+.two {
+  background-image: url(cards/2_of_hearts.png);
+}
+
+.three {
+  background-image: url(cards/3_of_hearts.png);
+}
+
+.four {
+  background-image: url(cards/4_of_hearts.png);
+}
+
+.five {
+  background-image: url(cards/5_of_hearts.png);
+}
+
+.six {
+  background-image: url(cards/6_of_hearts.png);
+}
+
+.seven {
+  background-image: url(cards/7_of_hearts.png);
+}
+
+.eight {
+  background-image: url(cards/8_of_hearts.png);
+}
+
+.nine {
+  background-image: url(cards/9_of_hearts.png);
+}
+
+.ten {
+  background-image: url(cards/10_of_hearts.png);
+}
+
+.closedCardsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 400px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: relative;
+  bottom: 50px;
+}
+
+.Enemy {
+  position: relative;
+  top: 50px;
+}
+
+.newCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 100px;
+}
+
+body {
+  background: #310000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body #opponent {
+  color: white;
+  margin-top: 25px;
+  text-align: center;
+}
+
+body #player {
+  color: white;
+  margin-bottom: 25px;
+}
+
+.mainWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.chipsSec {
+  height: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+}
+
+.chipsSec .chipsWrapper {
+  height: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #610000;
+  border-bottom-right-radius: 45px;
+  border-right: 4px black solid;
+}
+
+.chipsSec .openClose {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: relative;
+  right: -50px;
+}
+
+.chipsSec .openClose .X {
+  color: #f3d64d;
+  background-color: #610000;
+  width: 50px;
+  text-align: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: inline;
+  border: black 4px solid;
+  border-bottom: 0px solid black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.chipsSec .openClose .X:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.chipsSec .openClose .O {
+  color: #f3d64d;
+  background-color: #610000;
+  width: 50px;
+  text-align: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: inline;
+  border: black 4px solid;
+  border-left: 0px solid white;
+  position: relative;
+  bottom: -5px;
+  right: -20px;
+  opacity: 0;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.chipsSec .openClose .O:hover {
+  cursor: pointer;
+}
+
+.table-wrapper {
+  width: 75%;
+  height: 800px;
+  border: 25px solid black;
+  background-image: url(images/pokertable.jpg);
+  background-color: #610000;
+  background-size: cover;
+  border-radius: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  align-items: center;
+}
+
+.table-wrapper .alert {
+  font-size: 4rem;
+  color: goldenrod;
+  opacity: 0;
+}
+
+.table-wrapper .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 200px;
+}
+
+.table-wrapper .wrapper img {
+  margin-left: 70px;
+  width: 100px;
+}
+
+.table-wrapper .wrapper img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.table-wrapper .wrapper .bets {
+  width: 300px;
+  height: 200px;
+  border: white 1px solid;
+}
+
+.chipHide {
+  -webkit-transform: translateX(-230px);
+          transform: translateX(-230px);
+  -webkit-transition: -webkit-transform 1.5s ease-in-out;
+  transition: -webkit-transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+}
+
+.chipUnHide {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 1.5s ease-in-out;
+  transition: -webkit-transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out;
+  transition: transform 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+}
+
+.infoWrapper {
+  opacity: 1;
+  height: 740px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10%;
+  background-color: #610000;
+  border: 5px solid black;
+  border-right: 0px solid black;
+  text-align: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.infoWrapper h2 {
+  margin-top: 10px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.infoWrapper .amount {
+  color: white;
+}
+
+.infoWrapper hr {
+  margin-top: 10px;
+}
+
+.infoWrapper button:nth-of-type(1) {
+  width: 90%;
+  height: 100px;
+  background: #f3d64d;
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 25px;
+  border: 5px solid black;
+}
+
+.infoWrapper button:nth-of-type(2) {
+  width: 90%;
+  height: 100px;
+  background: #0152bd;
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 25px;
+  color: white;
+  border: 5px solid black;
+}
+
+.infoWrapper button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+/*# sourceMappingURL=main.css.map */
