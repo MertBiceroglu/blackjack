@@ -65,6 +65,10 @@
 .Enemy {
   position: relative;
   top: 50px;
+  visibility: hidden;
+}
+.playerCard {
+  visibility: hidden;
 }
 .newCard {
   display: flex;
