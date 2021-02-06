@@ -16,16 +16,16 @@
   }
 }
 .queen {
-  background-image: url(cards/queen_of_hearts2.png);
+  background-image: url(cards/11_of_hearts2.png);
 }
 .jack {
-  background-image: url(cards/jack_of_hearts2.png);
+  background-image: url(cards/12_of_hearts2.png);
 }
 .king {
-  background-image: url(cards/king_of_hearts2.png);
+  background-image: url(cards/13_of_hearts2.png);
 }
 .ace {
-  background-image: url(cards/ace_of_hearts.png);
+  background-image: url(cards/1_of_hearts.png);
 }
 .two {
   background-image: url(cards/2_of_hearts.png);
@@ -61,6 +61,7 @@
   justify-content: space-evenly;
   position: relative;
   bottom: 50px;
+  height: 180px;
 }
 .Enemy {
   position: relative;

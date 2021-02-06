@@ -1,21 +1,39 @@
+//queryselectors
 const hideBtn = document.querySelector('.X');
 const unHideBtn = document.querySelector('.O');
 const chipsSec = document.querySelector('.chipsSec');
 const dealCardBTN = document.querySelector('img');
-let audio = new Audio("images/flipcard.mp3");
 const chipsWrapper = document.querySelector('.chipsWrapper');
 const tableTotalBet = document.querySelector(".theWholeBet");
-let totalBetValue = 0; 
-let totalMoneyLeft = 800;
 const moneyLeft = document.querySelector(".moneyLeft");
 const ifWin = document.querySelector(".ifWin");
+const enemyCards = document.querySelector(".Enemy");
+const enemyCardArray = document.querySelectorAll(".e");
+const playerCardArray = document.querySelectorAll(".p");
+const playerCards = document.querySelector(".playerCard");
+const stopCarding = document.querySelector(".stopCarding");
 
+let totalBetValue = 0; 
+let totalMoneyLeft = 800;
+let audio = new Audio("images/flipcard.mp3");
+
+let card = rollInitial();
+let cardTwo = rollInitial();
+let cardP = rollInitial();
+let cardTwoP = rollInitial();
+
+let EnemyPoints = initialPoint(card,cardTwo);
+let playerPoint = initialPoint(cardP,cardTwoP);
+
+
+const symbols = ["♣","♦","♥","♠"];
+const cards = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
 chipsWrapper.addEventListener('click',placeBet);
 dealCardBTN.addEventListener("click",dealCard);
 hideBtn.addEventListener("click",hide);
 unHideBtn.addEventListener("click",unHide);
-
+stopCarding.addEventListener("click",dealersTurn);
 
 adjust();
 /* EVENT LISTENER FUNCTIONS */
@@ -31,6 +49,9 @@ function unHide(){
 }
 function dealCard(){
     audio.play();
+    dealerSetUP();
+    playerSetUP();
+
 }
 function placeBet(e){
     console.log(e.target.className);
@@ -57,7 +78,7 @@ function placeBet(e){
 /*ADJUSTERS*/
 function adjust(){
     moneyLeft.textContent = totalMoneyLeft + "₺";
-    tableTotalBet.textContent = totalBetValue + "₺";
+    tableTotalBet.textContent = totalBetValue*2 + "₺";
     ifWin.textContent = totalBetValue*2 + "₺";
 }
 
@@ -80,3 +101,74 @@ function placeBetControl(x){
         adjsut();
     }
 }
+
+
+/*ACTUAL FUNCTIONALITY*/
+function dealerSetUP(){
+    enemyCards.style.visibility = "visible";
+    EnemyPoints = initialPoint(card,cardTwo);
+    openUpEnemyCards(card,cardTwo,false,enemyCardArray);
+}
+function playerSetUP(){
+   playerCards.style.visibility = "visible";
+   openUpEnemyCards(cardP,cardTwoP,true,playerCardArray);
+}
+
+function initialPoint(card,cardTwo){
+    if(cardTwo[1] === 1 && card[1] === 1){
+        console.log("if1");
+        return 12;
+    }
+    else if(card[1] === 1 && card[1] + cardTwo[1]<=21){
+        console.log("if2");
+
+        card[1] = 11;
+        return card[1] + cardTwo[1];
+    }
+    else if(cardTwo[1] === 1 && card[1] + cardTwo[1]<=21){
+        console.log("if3");
+
+        cardTwo[1] = 11;
+        return card[1] + cardTwo[1];
+    }
+   
+    return card[1] + cardTwo[1];
+}
+function openUpEnemyCards(card,cardTwo,check,array){
+    
+    if(check){
+        array[0].style.backgroundImage = "url(cards/"+card[0]+"_of_hearts.png)";
+        array[1].style.backgroundImage = "url(cards/"+cardTwo[0]+"_of_hearts.png)";
+    }
+    else{
+        array[1].style.backgroundImage = "url(cards/"+cardTwo[0]+"_of_hearts.png)";
+    }
+}
+function dealersTurn(){
+    openUpEnemyCards(card,cardTwo,true,enemyCardArray);
+  
+
+    
+}
+function rollInitial(){
+    let randomize = Math.round((Math.random()*13));
+    if(randomize === 0)
+        randomize++;
+    let cardOne = randomize;
+    if(randomize > 10)
+        randomize = 10;
+    return [cardOne,randomize];
+}
+
+
+
+function dealCardForPlayer(){
+    card = rollInitial();
+
+
+
+
+
+
+}
+
