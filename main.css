@@ -120,58 +120,6 @@
   opacity: 0.8;
 }
 
-.queen {
-  background-image: url(cards/11_of_hearts2.png);
-}
-
-.jack {
-  background-image: url(cards/12_of_hearts2.png);
-}
-
-.king {
-  background-image: url(cards/13_of_hearts2.png);
-}
-
-.ace {
-  background-image: url(cards/1_of_hearts.png);
-}
-
-.two {
-  background-image: url(cards/2_of_hearts.png);
-}
-
-.three {
-  background-image: url(cards/3_of_hearts.png);
-}
-
-.four {
-  background-image: url(cards/4_of_hearts.png);
-}
-
-.five {
-  background-image: url(cards/5_of_hearts.png);
-}
-
-.six {
-  background-image: url(cards/6_of_hearts.png);
-}
-
-.seven {
-  background-image: url(cards/7_of_hearts.png);
-}
-
-.eight {
-  background-image: url(cards/8_of_hearts.png);
-}
-
-.nine {
-  background-image: url(cards/9_of_hearts.png);
-}
-
-.ten {
-  background-image: url(cards/10_of_hearts.png);
-}
-
 .closedCardsWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -182,7 +130,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 400px;
+  width: 600px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;

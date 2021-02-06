@@ -12,30 +12,57 @@ const enemyCardArray = document.querySelectorAll(".e");
 const playerCardArray = document.querySelectorAll(".p");
 const playerCards = document.querySelector(".playerCard");
 const stopCarding = document.querySelector(".stopCarding");
-
+const startBTN = document.querySelector(".start");
+const myAlert = document.querySelector('.alert');
+const reset = document.querySelector(".r");
+{
+    myAlert.style.opacity = 1;
+    myAlert.textContent = "Bahisinizi oynayın ve başla butonuna basın.";
+    myAlert.style.fontSize = "30px";
+}
 let totalBetValue = 0; 
 let totalMoneyLeft = 800;
 let audio = new Audio("images/flipcard.mp3");
-
 let card = rollInitial();
 let cardTwo = rollInitial();
 let cardP = rollInitial();
 let cardTwoP = rollInitial();
-
 let EnemyPoints = initialPoint(card,cardTwo);
 let playerPoint = initialPoint(cardP,cardTwoP);
-
-
+let playerTurn = false;
+let dealerTurn = false; 
+let gameEnded = false;
 const symbols = ["♣","♦","♥","♠"];
 const cards = [1,2,3,4,5,6,7,8,9,10,11,12,13];
 
-chipsWrapper.addEventListener('click',placeBet);
-dealCardBTN.addEventListener("click",dealCard);
-hideBtn.addEventListener("click",hide);
-unHideBtn.addEventListener("click",unHide);
-stopCarding.addEventListener("click",dealersTurn);
-
+//INITIAL FUNCTIONS
+eventListeners();
 adjust();
+
+function start(){
+    setUP();
+    myAlert.style.visibility = "hidden";
+    playerTurn = true;
+    checkBlackjack();
+}
+function eventListeners(){
+
+    chipsWrapper.addEventListener('click',placeBet);
+    dealCardBTN.addEventListener("click",dealCard);
+    hideBtn.addEventListener("click",hide);
+    unHideBtn.addEventListener("click",unHide);
+    stopCarding.addEventListener("click",dealersTurn);
+    startBTN.addEventListener("click",start);
+    reset.addEventListener('click',(resetle) => {
+        localStorage.money = '800';
+        location.reload();
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        totalMoneyLeft = JSON.parse(localStorage.money);
+        adjust();
+    });
+}
+
 /* EVENT LISTENER FUNCTIONS */
 function hide(){
 chipsSec.className = "chipsSec chipHide";
@@ -49,8 +76,9 @@ function unHide(){
 }
 function dealCard(){
     audio.play();
-    dealerSetUP();
     playerSetUP();
+    
+    
 
 }
 function placeBet(e){
@@ -104,14 +132,100 @@ function placeBetControl(x){
 
 
 /*ACTUAL FUNCTIONALITY*/
-function dealerSetUP(){
+function setUP(){
     enemyCards.style.visibility = "visible";
     EnemyPoints = initialPoint(card,cardTwo);
     openUpEnemyCards(card,cardTwo,false,enemyCardArray);
+    playerCards.style.visibility = "visible";
+    openUpEnemyCards(cardP,cardTwoP,true,playerCardArray);
 }
 function playerSetUP(){
-   playerCards.style.visibility = "visible";
-   openUpEnemyCards(cardP,cardTwoP,true,playerCardArray);
+    
+   if(playerPoint >= 21){
+       playerTurn = false;
+   }
+   else{
+        dealCardForPlayer();
+   }
+   
+}
+
+function checkBlackjack(){
+    if(playerTurn === true && playerPoint === 21){
+        myAlert.style.visibility = "visible";
+        myAlert.textContent = "BLACKJACK!";
+        console.log("BLACKJACK");
+        setTimeout(function(){  
+           myAlert.style.visibility = "hidden"; 
+            }, 7000);
+        playerTurn = false;
+        dealerTurn = true;
+   }
+   else if(playerTurn === true && playerPoint < 21){
+       playerTurn = true;
+       dealerTurn = false;
+   }
+   else if(playerTurn === true && playerPoint > 21 ){
+       myAlert.style.visibility = "visible";
+       myAlert.textContent = "KAYBETTİNİZ";
+       localStorage.money = JSON.stringify(totalMoneyLeft);
+       setTimeout(function(){  
+        location.reload(); 
+        }, 2000);
+   }
+
+    if(dealerTurn === true && EnemyPoints < playerPoint){
+       dealerTurn = true;
+       playerTurn = false;
+       DealCardForDealer();
+       
+     }
+    else if(dealerTurn === true && EnemyPoints === 21){
+        if(playerPoint === EnemyPoints){
+            myAlert.style.visibility = "visible";
+            myAlert.textContent = "BERABERE";
+            totalMoneyLeft+=totalBetValue/2;
+            localStorage.money = JSON.stringify(totalMoneyLeft);
+            setTimeout(function(){  
+                location.reload(); 
+                }, 2000);
+        }
+        else if(playerPoint < EnemyPoints){
+            myAlert.style.visibility = "visible";
+            myAlert.textContent = "KAZANDINIZ";
+            totalMoneyLeft+=totalBetValue*2;
+            localStorage.money = JSON.stringify(totalMoneyLeft);
+            setTimeout(function(){  
+                location.reload(); 
+                }, 2000);
+        }
+        else{
+            myAlert.style.visibility = "visible";
+            myAlert.textContent = "KAYBETTINIZ";
+            localStorage.money = JSON.stringify(totalMoneyLeft);
+            setTimeout(function(){  
+                location.reload(); 
+                }, 2000);
+        }
+    }
+    else if(dealerTurn === true && EnemyPoints >= 21){
+            myAlert.style.visibility = "visible";
+            myAlert.textContent = "KAZANDINIZ";
+            totalMoneyLeft+=totalBetValue*2;
+            localStorage.money = JSON.stringify(totalMoneyLeft);
+            setTimeout(function(){  
+                location.reload(); 
+                }, 2000);
+        }
+    else if(dealerTurn === true && EnemyPoints > playerPoint){
+            myAlert.style.visibility = "visible";
+            myAlert.textContent = "KAYBETTINIZ";
+            localStorage.money = JSON.stringify(totalMoneyLeft);
+            setTimeout(function(){  
+                location.reload(); 
+                }, 2000);
+        }
+   
 }
 
 function initialPoint(card,cardTwo){
@@ -146,9 +260,9 @@ function openUpEnemyCards(card,cardTwo,check,array){
 }
 function dealersTurn(){
     openUpEnemyCards(card,cardTwo,true,enemyCardArray);
-  
-
-    
+    playerTurn = false;
+    dealerTurn = true;
+    checkBlackjack();
 }
 function rollInitial(){
     let randomize = Math.round((Math.random()*13));
@@ -159,16 +273,30 @@ function rollInitial(){
         randomize = 10;
     return [cardOne,randomize];
 }
-
-
-
 function dealCardForPlayer(){
-    card = rollInitial();
-
-
-
-
-
-
+    if(playerTurn){
+        
+        card = rollInitial();
+        
+        newCard = document.createElement('div');
+        newCard.className = "cards p";
+        newCard.style.backgroundImage = "url(cards/"+card[0]+"_of_hearts.png)";
+        playerPoint += card[1];
+        playerCards.appendChild(newCard);
+        checkBlackjack();
+    }
+}
+function DealCardForDealer(){
+    if(dealerTurn){
+        
+        card = rollInitial();
+        
+        newCard = document.createElement('div');
+        newCard.className = "cards p";
+        newCard.style.backgroundImage = "url(cards/"+card[0]+"_of_hearts.png)";
+        EnemyPoints += card[1];
+        enemyCards.appendChild(newCard);
+        checkBlackjack();
+    }
 }
 
