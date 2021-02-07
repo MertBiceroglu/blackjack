@@ -134,7 +134,7 @@ function placeBet(e){
     else{
         myAlert.style.visibility = "visible";
         myAlert.textContent = "OYUN DEVAM EDERKEN BAHİS OYNAYAMAZSIN!";
-        setInterval(() => {
+        setTimeout(() => {
             myAlert.style.visibility = "hidden";
         }, waitSec);
     }
